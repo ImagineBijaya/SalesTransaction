@@ -1,0 +1,29 @@
+<mat-card>
+<mat-card-header>
+  <h1 *ngIf="isAddMode">Add Customer</h1>
+<h1 *ngIf="!isAddMode">Edit Customer</h1>
+</mat-card-header>
+<mat-card-content>
+  <form [formGroup]="form" class="form-formgroup" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-full-width">
+      <mat-label>Customer Name</mat-label>
+      <input matInput type="text" formControlName="customerName">
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Address</mat-label>
+      <input matInput type="text" formControlName="customerAddress">
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Phone</mat-label>
+      <input matInput type="text" formControlName="phoneNumber">
+    </mat-form-field>
+  </form>
+</mat-card-content>
+<mat-card-footer>
+  <button mat-raised-button color="primary" [disabled]="loading" >
+    <span *ngIf="loading" ></span>
+    Save
+</button>
+<button mat-raised-button color="warn" routerLink="/customers"   >Cancel</button>
+</mat-card-footer>
+</mat-card>
